@@ -51,7 +51,7 @@ int8_t getWifiQuality();
 // LED Settings
 const int offset = 1;
 int refresh = 0;
-String message = "hello";
+String message = "hola :-)";
 int spacer = 1;  // dots between letters
 int width = 5 + spacer; // The font width is 5 pixels + spacer
 Max72xxPanel matrix = Max72xxPanel(pinCS, numberOfHorizontalDisplays, numberOfVerticalDisplays);
@@ -383,8 +383,7 @@ void loop() {
       msg += " ";
 
       if (SHOW_DATE) {
-        msg += TimeDB.getDayName() + ", ";
-        msg += TimeDB.getMonthName() + " " + day() + "  ";
+        msg += TimeDB.getDayName() + " " + day () + " " + TimeDB.getMonthName() + "  ";
       }
       if (SHOW_CITY) {
         msg += weatherClient.getCity(0) + "  ";
@@ -393,21 +392,21 @@ void loop() {
 
       //show high/low temperature
       if (SHOW_HIGHLOW) {
-        msg += "High/Low:" + weatherClient.getHigh(0) + "/" + weatherClient.getLow(0) + " " + getTempSymbol() + "  ";
+        msg += "Max/Min:" + weatherClient.getHighRounded(0) + "/" + weatherClient.getLowRounded(0) + " " + getTempSymbol() + "  ";
       }
       
       if (SHOW_CONDITION) {
         msg += description + "  ";
       }
       if (SHOW_HUMIDITY) {
-        msg += "Humidity:" + weatherClient.getHumidityRounded(0) + "%  ";
+        msg += "Humedad:" + weatherClient.getHumidityRounded(0) + "%  ";
       }
       if (SHOW_WIND) {
-        msg += "Wind: " + weatherClient.getDirectionText(0) + " @ " + weatherClient.getWindRounded(0) + " " + getSpeedSymbol() + "  ";
+        msg += "Viento: " + weatherClient.getDirectionText(0) + " @ " + weatherClient.getWindRounded(0) + " " + getSpeedSymbol() + "  ";
       }
       //line to show barometric pressure
       if (SHOW_PRESSURE) {
-        msg += "Pressure:" + weatherClient.getPressure(0) + getPressureSymbol() + "  ";
+        msg += "Presion:" + weatherClient.getPressure(0) + getPressureSymbol() + "  ";
       }
      
       msg += marqueeMessage + " ";
@@ -1087,7 +1086,7 @@ void displayWeatherData() {
     temperature.remove(temperature.indexOf(".") + 2);
   }
 
-  String time = TimeDB.getDayName() + ", " + TimeDB.getMonthName() + " " + day() + ", " + hourFormat12() + ":" + TimeDB.zeroPad(minute()) + " " + TimeDB.getAmPm();
+  String time = TimeDB.getDayName() + " " + day() + " " + TimeDB.getMonthName() + ", " + hourFormat12() + ":" + TimeDB.zeroPad(minute()) + " " + TimeDB.getAmPm();
 
   Serial.println(weatherClient.getCity(0));
   Serial.println(weatherClient.getCondition(0));

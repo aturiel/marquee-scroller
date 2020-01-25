@@ -92,25 +92,25 @@ time_t TimeDB::getTime()
 String TimeDB::getDayName() {
   switch (weekday()) {
     case 1:
-      return "Sunday";
+      return "Dom";
       break;
     case 2:
-      return "Monday";
+      return "Lun";
       break;
     case 3:
-      return "Tuesday";
+      return "Mar";
       break;
     case 4:
-      return "Wednesday";
+      return "Mie";
       break;
     case 5:
-      return "Thursday";
+      return "Jue";
       break;
     case 6:
-      return "Friday";
+      return "Vie";
       break;
     case 7:
-      return "Saturday";
+      return "Sab";
       break;
     default:
       return "";
@@ -121,7 +121,7 @@ String TimeDB::getMonthName() {
   String rtnValue = "";
   switch (month()) {
     case 1:
-      rtnValue = "Jan";
+      rtnValue = "Ene";
       break;
     case 2:
       rtnValue = "Feb";
@@ -130,16 +130,16 @@ String TimeDB::getMonthName() {
       rtnValue = "Mar";
       break;
     case 4:
-      rtnValue = "Apr";
+      rtnValue = "Abr";
       break;
     case 5:
       rtnValue = "May";
       break;
     case 6:
-      rtnValue = "June";
+      rtnValue = "Jun";
       break;
     case 7:
-      rtnValue = "July";
+      rtnValue = "Jul";
       break;
     case 8:
       rtnValue = "Aug";
@@ -154,7 +154,7 @@ String TimeDB::getMonthName() {
       rtnValue = "Nov";
       break;
     case 12:
-      rtnValue = "Dec";
+      rtnValue = "Dic";
       break;
     default:
       rtnValue = "";

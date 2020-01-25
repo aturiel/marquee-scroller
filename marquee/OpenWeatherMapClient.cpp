@@ -36,7 +36,7 @@ void OpenWeatherMapClient::updateWeatherApiKey(String ApiKey) {
 
 void OpenWeatherMapClient::updateWeather() {
   WiFiClient weatherClient;
-  String apiGetData = "GET /data/2.5/group?id=" + myCityIDs + "&units=" + units + "&cnt=1&APPID=" + myApiKey + " HTTP/1.1";
+  String apiGetData = "GET /data/2.5/group?id=" + myCityIDs + "&lang=es" + "&units=" + units + "&cnt=1&APPID=" + myApiKey + " HTTP/1.1";
 
   Serial.println("Getting Weather Data");
   Serial.println(apiGetData);
@@ -259,9 +259,17 @@ String OpenWeatherMapClient::getHigh(int index)
   return weathers[index].high;
 }
 
+String OpenWeatherMapClient::getHighRounded(int index) {
+  return roundValue(getHigh(index));
+}
+
 String OpenWeatherMapClient::getLow(int index)
 {
   return weathers[index].low;
+}
+
+String OpenWeatherMapClient::getLowRounded(int index) {
+  return roundValue(getLow(index));
 }
 
 String OpenWeatherMapClient::getIcon(int index) {
