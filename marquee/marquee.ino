@@ -26,7 +26,6 @@
 ***********************************************/
 
 #include "Settings.h"
-
 #define VERSION "2.15"
 
 #define HOSTNAME "CLOCK-"
@@ -51,7 +50,7 @@ int8_t getWifiQuality();
 // LED Settings
 const int offset = 1;
 int refresh = 0;
-String message = "hola :-)";
+String message = "hola";
 int spacer = 1;  // dots between letters
 int width = 5 + spacer; // The font width is 5 pixels + spacer
 Max72xxPanel matrix = Max72xxPanel(pinCS, numberOfHorizontalDisplays, numberOfVerticalDisplays);
@@ -232,7 +231,7 @@ void setup() {
 
   Serial.println("matrix created");
   matrix.fillScreen(LOW); // show black
-  centerPrint("hello");
+  centerPrint(message);
 
   tone(BUZZER_PIN, 415, 500);
   delay(500 * 1.3);
@@ -330,7 +329,7 @@ void setup() {
     // Print the IP address
     String webAddress = "http://" + WiFi.localIP().toString() + ":" + String(WEBSERVER_PORT) + "/";
     Serial.println("Use this URL : " + webAddress);
-    scrollMessage(" v" + String(VERSION) + "  IP: " + WiFi.localIP().toString() + "  ");
+    scrollMessage(" v" + String(VERSION) + "  IP:" + WiFi.localIP().toString() + "  ");
   } else {
     Serial.println("Web Interface is Disabled");
     scrollMessage("Web Interface is Disabled");
@@ -392,7 +391,7 @@ void loop() {
 
       //show high/low temperature
       if (SHOW_HIGHLOW) {
-        msg += "Max/Min:" + weatherClient.getHighRounded(0) + "/" + weatherClient.getLowRounded(0) + " " + getTempSymbol() + "  ";
+        msg += "Max/Min:" + weatherClient.getHighRounded(0) + "/" + weatherClient.getLowRounded(0) + getTempSymbol() + "  ";
       }
       
       if (SHOW_CONDITION) {
