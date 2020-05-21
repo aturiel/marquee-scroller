@@ -99,7 +99,7 @@ String timeDisplayTurnsOn = "";  // 24 Hour Format HH:MM -- Leave blank for alwa
 String timeDisplayTurnsOff = ""; // 24 Hour Format HH:MM -- Leave blank for always on. Both must be set to work.
 
 // OctoPrint Monitoring -- Monitor your 3D printer OctoPrint Server
-boolean OCTOPRINT_ENABLED = false;
+boolean OCTOPRINT_ENABLED = true;
 boolean OCTOPRINT_PROGRESS = true;
 String OctoPrintApiKey = "";  // ApiKey from your User Account on OctoPrint
 String OctoPrintServer = "";  // IP or Address of your OctoPrint Server (DO NOT include http://)
