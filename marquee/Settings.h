@@ -69,7 +69,7 @@ const int WEBSERVER_PORT = 80; // The port you can access this device on over HT
 const boolean WEBSERVER_ENABLED = true;  // Device will provide a web interface via http://[ip]:[port]/
 boolean IS_BASIC_AUTH = false;  // Use Basic Authorization for Configuration security on Web Interface
 char* www_username = "admin";  // User account for the Web Interface
-char* www_password = "pcl";  // Password for the Web Interface
+char* www_password = "WJ8>9n#9Fz9";  // Password for the Web Interface
 int minutesBetweenDataRefresh = 15;  // Time in minutes between data refresh (default 15 minutes)
 int minutesBetweenScrolling = 1; // Time in minutes between scrolling data (default 1 minutes and max is 10)
 int displayScrollSpeed = 25; // In milliseconds -- Configurable by the web UI (slow = 35, normal = 25, fast = 15, very fast = 5)
@@ -102,7 +102,7 @@ String timeDisplayTurnsOff = ""; // 24 Hour Format HH:MM -- Leave blank for alwa
 boolean OCTOPRINT_ENABLED = true;
 boolean OCTOPRINT_PROGRESS = true;
 String OctoPrintApiKey = "";  // ApiKey from your User Account on OctoPrint
-String OctoPrintServer = "";  // IP or Address of your OctoPrint Server (DO NOT include http://)
+String OctoPrintServer = "octopi.local";  // IP or Address of your OctoPrint Server (DO NOT include http://)
 int OctoPrintPort = 80;       // the port you are running your OctoPrint server on (usually 80);
 String OctoAuthUser = "";     // only used if you have haproxy or basic athentintication turned on (not default)
 String OctoAuthPass = "";     // only used with haproxy or basic auth (only needed if you must authenticate)
