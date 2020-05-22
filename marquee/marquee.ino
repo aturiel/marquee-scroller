@@ -108,6 +108,7 @@ static const char WEB_ACTIONS2[] PROGMEM = "<a class='w3-bar-item w3-button' hre
 static const char WEB_ACTION3[] PROGMEM = "</a><a class='w3-bar-item w3-button' href='/systemreset' onclick='return confirm(\"Do you want to reset to default weather settings?\")'><i class='fas fa-undo'></i> Reset Settings</a>"
                        "<a class='w3-bar-item w3-button' href='/forgetwifi' onclick='return confirm(\"Do you want to forget to WiFi connection?\")'><i class='fas fa-wifi'></i> Forget WiFi</a>"
                        "<a class='w3-bar-item w3-button' href='/update'><i class='fas fa-wrench'></i> Firmware Update</a>"
+                       "<a class='w3-bar-item w3-button' href='/reboot'><i class='fas fa-power-off'></i> Reboot</a>"
                        "<a class='w3-bar-item w3-button' href='https://github.com/Qrome/marquee-scroller' target='_blank'><i class='fas fa-question-circle'></i> About</a>";
 
 static const char CHANGE_FORM1[] PROGMEM = "<form class='w3-container' action='/locations' method='get'><h2>Configure:</h2>"
@@ -321,6 +322,7 @@ void setup() {
     server.on("/configureoctoprint", handleOctoprintConfigure);
     server.on("/configurepihole", handlePiholeConfigure);
     server.on("/display", handleDisplay);
+    server.on("/reboot", handleReboot);
     server.onNotFound(redirectHome);
     serverUpdater.setup(&server, "/update", www_username, www_password);
     // Start the server
@@ -907,6 +909,10 @@ void handleConfigure() {
   server.sendContent("");
   server.client().stop();
   digitalWrite(externalLight, HIGH);
+}
+
+void handleReboot() {
+    ESP.restart();
 }
 
 void handleDisplay() {
